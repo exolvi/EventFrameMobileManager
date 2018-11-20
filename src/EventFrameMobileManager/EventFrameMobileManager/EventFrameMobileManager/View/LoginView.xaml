@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventFrameMobileManager.View.LoginView"
+             BindingContext="{Binding Login, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Event Frame Manager"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Username" Margin="4" />
+            <Entry Text="{Binding Username}" />
+            <Label Text="Password" Margin="4" />
+            <Entry Text="{Binding Password}" IsPassword="True" />
+            
+            <Button Text="Login" Command="{Binding LoginCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

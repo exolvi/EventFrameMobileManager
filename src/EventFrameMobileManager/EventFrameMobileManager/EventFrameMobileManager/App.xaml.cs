@@ -11,7 +11,7 @@ namespace EventFrameMobileManager
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new View.LoginView());
         }
 
         protected override void OnStart()
