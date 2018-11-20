@@ -75,6 +75,41 @@ namespace EventFrameMobileManager.ViewModel
             }
         }
 
+        private EventFrameViewModel _currentEventFrame;
+        public EventFrameViewModel CurrentEventFrame
+        {
+            get { return _currentEventFrame; }
+            set
+            {
+                _currentEventFrame = value;
+                RaisePropertyChanged();
+                ShowData();
+            }
+        }
+
+        private async Task ShowData()
+        {
+            if (_currentEventFrame != null)
+            {
+                var vm = new RelatedElementDetailViewModel(_client)
+                {
+                    AfDatabase = _afDbId,
+                    AfServer = _afServerId,
+                    RelWebId = _currentEventFrame.RelWebId,
+                    StartTime = _currentEventFrame.StartTime
+                };
+
+                vm.RefreshAttributes();
+
+                var v = new View.RelatedElementDetailView()
+                {
+                    BindingContext = vm
+                };
+
+                await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(v, true);
+            }
+        }
+
         public async Task RefreshEventFrames()
         {
             IsRefreshing = true;
@@ -90,11 +125,11 @@ namespace EventFrameMobileManager.ViewModel
                 StartTime = z.StartTime,
                 AfServer = _afServerId,
                 AfDatabase = _afDbId,
-                WebId = z.WebId
-            }
-            );
+                WebId = z.WebId,
+                RelWebId = z.RefElementWebIds.FirstOrDefault()
+            });
 
-            EventFrames = new ObservableCollection<EventFrameViewModel>(evs);
+            EventFrames = new ObservableCollection<EventFrameViewModel>(evs);            
             IsRefreshing = false;
         }
     }

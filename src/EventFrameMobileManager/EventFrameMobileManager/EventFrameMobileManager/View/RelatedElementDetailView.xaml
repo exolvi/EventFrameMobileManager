@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventFrameMobileManager.View.RelatedElementDetailView"
+             Title="Related Element Details">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Attribute" />
+                <Picker SelectedItem="{Binding CurrentAttribute}" 
+                        ItemDisplayBinding="{Binding Name}" 
+                        ItemsSource="{Binding Attributes}" />
+            </StackLayout>
+            <ListView Grid.Row="1" ItemsSource="{Binding Data}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Value}" Detail="{Binding Timestamp}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

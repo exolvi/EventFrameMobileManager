@@ -22,6 +22,7 @@ namespace EventFrameMobileManager.ViewModel
         public string AfServer { get; set; }
         public string AfDatabase { get; set; }
         public string WebId { get; set; }
+        public string RelWebId { get; set; }
 
         private RelayCommand _ackCommand;
         public RelayCommand AckCommand

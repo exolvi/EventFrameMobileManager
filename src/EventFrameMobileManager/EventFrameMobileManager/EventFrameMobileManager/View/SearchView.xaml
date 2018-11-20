@@ -15,7 +15,8 @@
             <ListView IsPullToRefreshEnabled="True" 
                       ItemsSource="{Binding EventFrames}"
                       RefreshCommand="{Binding RefreshEventFramesCommand}"
-                      IsRefreshing="{Binding IsRefreshing}">
+                      IsRefreshing="{Binding IsRefreshing}"
+                      SelectedItem="{Binding CurrentEventFrame}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Name}" Detail="{Binding StartTime}">
