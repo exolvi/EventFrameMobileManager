@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventFrameMobileManager.View.EventFrameAnnotationView"
+             Title="Annotation">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name" />
+            <Entry Text="{Binding Name}" />
+            <Label Text="Description" />
+            <Entry Text="{Binding Description}" />
+            <Label Text="Value" />
+            <Entry Text="{Binding Value}" />
+            <Button Text="Submit" Command="{Binding SubmitCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

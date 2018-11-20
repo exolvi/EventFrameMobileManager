@@ -5,8 +5,8 @@
              x:Class="EventFrameMobileManager.App">
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator" />
-        <x:String x:Key="PIWebAPIUrl">https://myhost/PIWebApi/</x:String>
-        <x:String x:Key="AFServer">myAFServer</x:String>
-        <x:String x:Key="AFDatabase">myAFDatabase</x:String>
+        <x:String x:Key="PIWebAPIUrl"></x:String>
+        <x:String x:Key="AFServer"></x:String>
+        <x:String x:Key="AFDatabase"></x:String>
     </Application.Resources>
 </Application>

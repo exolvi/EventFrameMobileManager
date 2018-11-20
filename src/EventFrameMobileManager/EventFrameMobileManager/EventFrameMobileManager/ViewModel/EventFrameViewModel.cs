@@ -37,11 +37,40 @@ namespace EventFrameMobileManager.ViewModel
             }
         }
 
+        private RelayCommand _annotateCommand;
+        public RelayCommand AnnotateCommand
+        {
+            get
+            {
+                if (_annotateCommand is null)
+                {
+                    _annotateCommand = new RelayCommand(() => Annotate());
+                }
+
+                return _annotateCommand;
+            }
+        }
+
         private async Task Ack()
         {
             await _client.EventFrame.AcknowledgeAsync(WebId);
 
             await SimpleIoc.Default.GetInstance<SearchViewModel>().RefreshEventFrames();
+        }
+
+        private void Annotate()
+        {
+            var vm = new EventFrameAnnotationViewModel(_client)
+            {
+                EventFrame = this
+            };
+
+            var v = new View.EventFrameAnnotationView
+            {
+                BindingContext = vm
+            };
+
+            Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(v, true);
         }
     }
 }

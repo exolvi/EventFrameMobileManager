@@ -20,7 +20,8 @@
                     <DataTemplate>
                         <TextCell Text="{Binding Name}" Detail="{Binding StartTime}">
                             <TextCell.ContextActions>
-                                <MenuItem Command="{Binding AckCommand}" Text="Ack" IsDestructive="True" />
+                                <MenuItem Command="{Binding AnnotateCommand}" Text="Annotate" />
+                                <MenuItem Command="{Binding AckCommand}" Text="Ack" IsDestructive="True" />                                
                             </TextCell.ContextActions>
                         </TextCell>
                     </DataTemplate>
